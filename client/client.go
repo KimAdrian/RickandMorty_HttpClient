@@ -35,5 +35,8 @@ func FetchData() (string, error) {
 		log.Fatal("An error has occurred: ", err)
 	}
 
-	return response.TextOutput(), err
+	data, err := json.MarshalIndent(response, "", "	")
+	output := string(data)
+
+	return output, err
 }
